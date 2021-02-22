@@ -74,3 +74,10 @@
     position: relative;
   }
   
+.currentTemperature {
+    color: #495464;
+    font-size: 25px;
+    padding-left: 25px;
+
+}
+
