@@ -1,0 +1,73 @@
+.container {
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    border-radius: 15px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+  }
+  
+  .cardBig {
+    margin: 0 auto;
+    background-color: #b4e2f7;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+  }
+  
+  .cardSmall {
+    margin: 0 auto;
+    background-color: #fbf0ec;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .form-inline {
+    display: inline-block;
+    width: 70%;
+    border-radius: 5px;
+  }
+  
+  .searchButton {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-style: none;
+    color: #495464;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  }
+  
+  .arrows {
+    font-size: 25px;
+    color: #495464;
+  }
+  
+  .weathericons,
+  .days {
+    color: #495464;
+    font-size: 25px;
+    position: relative;
+    padding: 3px;
+  }
+  
+  .currentdate {
+    color: #495464;
+    font-size: 25px;
+    padding-left: 25px;
+  }
+  
+  .currentCity {
+    padding-left: 25px;
+    color: #495464;
+    font-size: 45px;
+    font-weight: bolder;
+  }
+  
+  .humidityWind {
+    color: #495464;
+    font-size: 25px;
+    padding-left: 25px;
+    text-align: left;
+    position: relative;
+  }
+  
