@@ -1,5 +1,5 @@
 .container {
-    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     border-radius: 15px;
     margin: 20px auto;
     padding-top: 10px;
@@ -9,7 +9,7 @@
   
   .cardBig {
     margin: 0 auto;
-    background-color: #b4e2f7;
+    background-color: #a1c4fd ;
     border-radius: 5px;
     text-align: center;
     width: 80%;
@@ -17,7 +17,7 @@
   
   .cardSmall {
     margin: 0 auto;
-    background-color: #fbf0ec;
+    background-color: #a1c4fd ;
     border-radius: 5px;
     text-align: center;
     width: 100%;
@@ -31,13 +31,13 @@
   
   .search-button {
     padding: 8px 15px;
-display: block;
-margin: 0 auto;
-width: 20px;
+    display: block;
+    margin: 0 auto;
+    width: 20px;
     border-radius: 5px;
     border-style: none;
     color: #495464;
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-image: blue;
   }
   
   .arrows {
