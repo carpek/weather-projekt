@@ -29,8 +29,10 @@
     border-radius: 5px;
   }
   
-  .searchButton {
+  .search-button {
     padding: 8px 15px;
+display: block;
+margin: 0 auto;
     border-radius: 5px;
     border-style: none;
     color: #495464;
