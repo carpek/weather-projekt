@@ -5,6 +5,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     width: 60%;
+    
   }
   
   .cardBig {
@@ -12,6 +13,8 @@
     border-radius: 5px;
     text-align: center;
     width: 80%;
+    font-size: 20px;
+    color: #495464;
   }
   
   .cardSmall {
@@ -19,34 +22,30 @@
     border-radius: 5px;
     text-align: center;
     width: 100%;
+    font-size: 20px;
+    color: #495464;
   }
   
   .form-inline {
     display: inline-block;
     width: 70%;
     border-radius: 5px;
+    font-size: 20px;
+    color: #495464;
   }
   
-  .search-button {
-    padding: 8px 15px;
-    display: block;
-    margin: 0 auto;
-    width: 20px;
-    border-radius: 5px;
-    border-style: none;
-    color: #495464;
-    background-image: blue;
-  }
+  
+  
   
   .arrows {
-    font-size: 25px;
+    font-size: 20px;
     color: #495464;
   }
   
   .weathericons,
   .days {
     color: #495464;
-    font-size: 25px;
+    font-size: 20px;
     position: relative;
     padding: 3px;
   }
