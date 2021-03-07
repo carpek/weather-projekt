@@ -1,6 +1,6 @@
-// change date
-function dayFormat(date) {
-    let date = new Date(date);
+// change date to weekday
+function dayFormat(dates) {
+    let date = new Date(dates);
 
     let currentDays = [
       "Sunday",
@@ -13,12 +13,12 @@ function dayFormat(date) {
     ];
 
     let days = currentDays[date.getDay()];
-    return `${days} ${formatHours(date)}`;
+    return `${days} ${formatHours(dates)}`;
   }
 
   // change time
-  function formatHours(date) {
-    let date = new Date(date);
+  function formatHours(dates) {
+    let date = new Date(dates);
     let hours = date.getHours();
     if (hours < 10) {
       hours = `0${hours}`;
@@ -39,29 +39,42 @@ function dayFormat(date) {
   
   // change description
   
-  function showWeatherConditions(response) {
-    document.querySelector("#current-city").innerHTML = response.data.name;
-    document.querySelector("#temperature").innerHTML = Math.round(
-      response.data.main.temp
-    );
-  
-    document.querySelector("#current-humidity").innerHTML = Math.round(
-      response.data.main.humidity
-    );
-    document.querySelector("#current-wind").innerHTML = Math.round(
-      response.data.wind.speed
-    );
-    document.querySelector("#description").innerHTML =
-      response.data.weather[0].main;
-  }
+ 
   
 // display forcast of hourly weather
 
 function displayForecast (response) {
 
+    let  forecastElement = document.querySelector("#forcast");
+    forecastElement.innerHTML = null;
+    let forecast = null;
+    
+    for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
 
+    <div class="col">
+        <div class="cardSmall">
+            <div class="card-body">
+            ${formatHours}
+            
+            <img
+                src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon}@2x.png"
+                />
 
-}
+            <span class="forcast-temperature">
+                 <strong>${Math.round(forecast.main.temp_max)}°
+                 </strong>
+                 
+                 ${Math.round(forecast.main.temp_min)}
+            
+                 </span>
+            </div>        
+        </div>
+    </div> `;}
+
+    }
 
 // Search city & handle submit
 
@@ -71,7 +84,7 @@ function displayForecast (response) {
     let units = "metric";
     let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}
     `;
-    axios.get(apiUrl).then(showWeatherConditions);
+    axios.get(apiUrl).then(showTemperature);
 
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
@@ -87,16 +100,26 @@ function displayForecast (response) {
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", handleSubmit);
   
+
+
   // display Elements in html 
 
-
  function showTemperature(response) {
-    let temperatureElement = document.querySelector("temperature");
+    let temperatureElement = document.querySelector("#temperature");
     celciusTemperatureDisplay = response.data.main.temp;
     temperatureElement.innerHTML = Math.round(celciusTemperatureDisplay);
  
+let cityElement = document.querySelector("#current-city");
+cityElement.innerHTML = response.data.main.name;
 
+let descriptionElement = document.querySelector("#description");
+descriptionElement.innerHTML = response.data.weather[0].description;
 
+let humidityElement = document.querySelector("#current-humidity");
+humidityElement.innerHTML = response.data.main.humidity;
+
+let windElement = document.querySelector("#current-wind");
+windElement.innerHTML = Math.round(response.data.wind.speed);
 
 
 }
@@ -107,22 +130,22 @@ function displayForecast (response) {
 
   function fahrenheitClick(event) {
     event.preventDefault();
-    let temperatureElement = document.querySelector("temperature");
+    let temperatureElement = document.querySelector("#temperature");
     celciusTemperature.classList.remove("units");
     fahrenheitTemperature.classList.add("units");
 
-    let fahrenheit =  (celsiusTemperatureDisplay * 9) / 5 + 32;
+    let fahrenheit =  (celciusTemperatureDisplay * 9) / 5 + 32;
    
     temperatureElement.innerHTML = Math.round(fahrenheit);
-    
   }
   
   function celicusClick(event) {
     event.preventDefault();
+
     celciusTemperature.classList.add("units");
     fahrenheitTemperature.classList.remove("units");
 
-    let temperatureElement = document.querySelector("temperature");
+    let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(celciusTemperatureDisplay);
   }
 
