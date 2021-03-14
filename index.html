@@ -9,7 +9,7 @@
     rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
    
     <script src="https://kit.fontawesome.com/62e6647f5f.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="src/style.css" />
 
@@ -37,7 +37,6 @@
                 type="submit" 
                 value="search" />
 
-
               </form>
 
             </div>
@@ -51,17 +50,19 @@
               <div class="card-body" id="card-date">
                 <p class="currentDate" id="date">
                 </p>
-                <p class="currentCity" id="current-city">
+                <div class="currentIcon" id="current-icon">
+                </div>
+                <div class="currentCity" id="current-city">
                   
-                </p>
+                </div>
                 <p class="currentTemperature" id="temperature">
-                  
-                   </p><span id="units">
+                </p> 
+                   <span id="units">
                   <a href="#" id="celcius-temperature" class="units">°C</a> /
                   <a href="#" id="fahrenheit-temperature" class="units">°F</a>
                   </span>  </p>
-                  <p>
-             <span id="description">  </span>
+                  <p class="description">Current conditions:
+             <span id="description">   </span>
                 </p>
               </div>
             </div>

@@ -32,14 +32,6 @@ function dayFormat(dates) {
     return ` ${hours}:${minutes}`;
   }
 
- 
-  let currentDate = document.querySelector("#date");
- 
-  currentDate.innerHTML = dayFormat("#date");
-  
-  // change description
-  
- 
   
 // display forcast of hourly weather
 
@@ -56,7 +48,7 @@ function displayForecast (response) {
     <div class="col">
         <div class="cardSmall">
             <div class="card-body">
-            ${formatHours}
+            ${formatHours(forecast.dt*1000)}
             
             <img
                 src="http://openweathermap.org/img/wn/${
@@ -82,8 +74,8 @@ function displayForecast (response) {
     let apiKey = `a8b18d5e574b14c1d3de44331ec7e970`;
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
     let units = "metric";
-    let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}
-    `;
+    let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
+    
     axios.get(apiUrl).then(showTemperature);
 
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
@@ -93,24 +85,19 @@ function displayForecast (response) {
   
   function handleSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#search-input");
-    search(city.value);
+    let cityElementSearch = document.querySelector("#search-input");
+    search(cityElementSearch.value);
   }
   
-  let searchForm = document.querySelector("#search-form");
-  searchForm.addEventListener("submit", handleSubmit);
-  
-
 
   // display Elements in html 
 
  function showTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
-    celciusTemperatureDisplay = response.data.main.temp;
     temperatureElement.innerHTML = Math.round(celciusTemperatureDisplay);
- 
+
 let cityElement = document.querySelector("#current-city");
-cityElement.innerHTML = response.data.main.name;
+cityElement.innerHTML = response.data.name;
 
 let descriptionElement = document.querySelector("#description");
 descriptionElement.innerHTML = response.data.weather[0].description;
@@ -121,10 +108,18 @@ humidityElement.innerHTML = response.data.main.humidity;
 let windElement = document.querySelector("#current-wind");
 windElement.innerHTML = Math.round(response.data.wind.speed);
 
+let currentDate = document.querySelector("#date");
+currentDate.innerHTML = dayFormat(response.data.dt*1000);
 
+
+celciusTemperatureDisplay = response.data.main.temp;
 }
 
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
  
+
+
  // display celcius & fahrenheit on click 
 
 
@@ -151,12 +146,10 @@ windElement.innerHTML = Math.round(response.data.wind.speed);
 
   let celciusTemperatureDisplay =null;
   
- 
-  
   let fahrenheitTemperature = document.querySelector("#fahrenheit-temperature");
   fahrenheitTemperature.addEventListener("click", fahrenheitClick);
   
   let celciusTemperature = document.querySelector("#celcius-temperature");
   celciusTemperature.addEventListener("click", celicusClick);
   
-  search("New York");
+  search("Vienna");
