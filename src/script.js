@@ -89,7 +89,6 @@ function displayForecast (response) {
     search(cityElementSearch.value);
   }
   
-
   // display Elements in html 
 
  function showTemperature(response) {
