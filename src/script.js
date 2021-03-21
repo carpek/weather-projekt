@@ -95,6 +95,8 @@ function displayForecast (response) {
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(celciusTemperatureDisplay);
 
+    celciusTemperatureDisplay = response.data.main.temp;
+
 let cityElement = document.querySelector("#current-city");
 cityElement.innerHTML = response.data.name;
 
@@ -111,7 +113,7 @@ let currentDate = document.querySelector("#date");
 currentDate.innerHTML = dayFormat(response.data.dt*1000);
 
 
-celciusTemperatureDisplay = response.data.main.temp;
+
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -143,7 +145,7 @@ searchForm.addEventListener("submit", handleSubmit);
     temperatureElement.innerHTML = Math.round(celciusTemperatureDisplay);
   }
 
-  let celciusTemperatureDisplay =null;
+  let celciusTemperatureDisplay = null;
   
   let fahrenheitTemperature = document.querySelector("#fahrenheit-temperature");
   fahrenheitTemperature.addEventListener("click", fahrenheitClick);
